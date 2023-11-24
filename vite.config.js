@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import legacy from '@vitejs/plugin-legacy'
 
 export default defineConfig({
 	root: './src', //開発ディレクトリ設定
@@ -26,4 +27,10 @@ export default defineConfig({
 			},
 		},
 	},
+	plugins: [
+		legacy({
+			targets: ['ie >= 11'],
+			additionalLegacyPolyfills: ['regenerator-runtime/runtime']
+		}),
+	]
 });
